@@ -107,3 +107,10 @@ To run tests within the container:
 ```bash
 docker-compose exec books.api dotnet test
 ```
+
+
+## Swagger Screen Shot
+
+<img width="1686" height="647" alt="image" src="https://github.com/user-attachments/assets/9d76f6ca-8e8e-44c8-be2a-821cd3640ecf" />
+
+
