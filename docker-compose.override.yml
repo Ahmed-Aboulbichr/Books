@@ -1,0 +1,29 @@
+services:
+  books.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+      - ConnectionStrings__BooksDb=Server=booksdb,1433;Database=BooksDb;User Id=sa;Password=password123!;TrustServerCertificate=true
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    depends_on:
+      - booksdb
+    networks:
+      - booksnetwork
+
+  booksdb:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: booksdb
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "password123!"
+    ports:
+      - "1433:1433"
+    networks:
+      - booksnetwork
+
+networks:
+  booksnetwork:
+    driver: bridge

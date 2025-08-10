@@ -1,0 +1,6 @@
+services:
+  books.api:
+    image: ${DOCKER_REGISTRY-}booksapi
+    build:
+      context: .
+      dockerfile: src/API/Books.API/Dockerfile
